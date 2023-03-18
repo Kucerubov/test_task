@@ -15,7 +15,6 @@ function PreviewCourse(props) {
         fetchData().catch(error => console.log(error));
     }, [props.id]);
 
-
     if (isLoading) {
         return <p>Loading course data...</p>;
     }

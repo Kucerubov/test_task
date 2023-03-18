@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Button, Col, Container, Nav, Row} from "react-bootstrap";
+import {Button, Col, Container, Row} from "react-bootstrap";
 import PreviewCourse from "./PreviewCourse";
 import {Link} from "react-router-dom";
 
@@ -24,6 +24,8 @@ const Courses = ({ data }) => {
                         src={course.previewImageLink + '/cover.webp'}
                         className="style-img"
                         alt="alt image"
+                        width="640"
+                        height="360"
                     />
                     <p>{course.description}</p>
                     <Container id={course.id}>
