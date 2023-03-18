@@ -23,7 +23,7 @@ const Courses = ({ data }) => {
                     <img
                         src={course.previewImageLink + '/cover.webp'}
                         className="style-img"
-                        alt="alt image"
+                        alt="alt img"
                         width="640"
                         height="360"
                     />
