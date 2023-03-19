@@ -9,7 +9,7 @@ const Pagination = ({ coursesPerPage, totalCourses, paginate}) => {
     }
 
     return (
-        <div>
+        <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
             <ul className="pagination">
                 {
                     pageNumbers.map(number => (
