@@ -3,9 +3,6 @@ import VideoCorse from "./VideoCorse";
 
 function CourseLesson ({videoLink, videoId, order, videoPreviewImageLink, videoStatus, title}){
 
-    console.log(`${videoPreviewImageLink}/lesson-${order}.webp.`);
-    console.log(order);
-
     if (videoStatus === "locked") {
         return (
             <div id={`lesson-id-${videoId}`}>

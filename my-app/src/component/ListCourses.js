@@ -14,7 +14,6 @@ function CoursesForm() {
     useEffect(() => {
         async function fetchData() {
             const response = await getCourses();
-            console.log(response.courses);
             setData(response.courses);
         }
         fetchData();

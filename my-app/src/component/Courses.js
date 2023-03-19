@@ -10,7 +10,6 @@ const Courses = ({ data }) => {
 
     function handleButtonClick(event) {
         const id = event.target.id;
-        console.log(id);
         setButtonId(id);
     }
 

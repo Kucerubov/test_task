@@ -6,17 +6,12 @@ function VideoCourse({ videoLink, videoId, order, videoPreviewImageLink, title }
     const [videoRef, setVideoRef] = useState(null);
 
     useEffect(() => {
-        if (videoRef) {
-            videoRef.volume = 0.4;
-        }
-    }, [videoRef]);
-
-    useEffect(() => {
         const initVideoPlayback = () => {
             if (videoRef) {
                 if (Hls.isSupported()) {
                     const hls = new Hls();
                     hls.loadSource(videoLink);
+                    videoRef.volume = 0.4;
                     hls.attachMedia(videoRef);
                 } else if (videoRef.canPlayType("application/vnd.apple.mpegurl")) {
                     videoRef.src = videoLink;

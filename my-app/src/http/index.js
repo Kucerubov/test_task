@@ -1,4 +1,3 @@
-import PreviewCourse from "../component/PreviewCourse";
 
 export const API_URl = 'https://api.wisey.app/api/v1/';
 
@@ -23,7 +22,6 @@ export default function getCourses() {
 
 export function getCourse(id) {
     return getToken().then(() => {
-        console.log(id);
             return fetch(`${API_URl}core/preview-courses/${id}`, {
                 headers: {
                     'Content-Type': 'application/json',
@@ -32,7 +30,6 @@ export function getCourse(id) {
             })
                 .then((response) => response.json())
                 .then((data) => {
-                    console.log(data);
                     return data;
                 });
         });
