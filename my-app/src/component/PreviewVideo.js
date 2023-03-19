@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import CourseLesson from "./CourseLesson";
 import VideoCorse from "./VideoCorse";
-import {Button, Col, Form, Row} from "react-bootstrap";
+import {Button, Col, Row} from "react-bootstrap";
 
 function PreviewVideo ({course}) {
     const [isLessonVisible, setIsLessonVisible] = useState(false);
