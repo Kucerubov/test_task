@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Hls from "hls.js";
 import { Button, Col, Form, Row } from "react-bootstrap";
 
-function VideoCourse({ videoLink, videoId, order, videoPreviewImageLink, title}) {
+function VideoCourse({ videoLink, videoId, order, videoPreviewImageLink, title }) {
     const [videoRef, setVideoRef] = useState(null);
 
     useEffect(() => {
@@ -28,8 +28,30 @@ function VideoCourse({ videoLink, videoId, order, videoPreviewImageLink, title})
             initVideoPlayback();
         }
 
+        const handleKeyDown = (event) => {
+            if (videoRef) {
+                if (event.key === "ArrowLeft") {
+                    videoRef.currentTime -= 10;
+                } else if (event.key === "ArrowRight") {
+                    videoRef.currentTime += 10;
+                } else if (event.key === "+") {
+                    const newPlaybackRate = videoRef.playbackRate + 0.25;
+                    if (newPlaybackRate <= 4.0) {
+                        videoRef.playbackRate = newPlaybackRate;
+                    }
+                } else if (event.key === "-") {
+                    const newPlaybackRate = videoRef.playbackRate - 0.25;
+                    if (newPlaybackRate >= 0.5) {
+                        videoRef.playbackRate = newPlaybackRate;
+                    }
+                }
+            }
+        };
+
+        document.addEventListener("keydown", handleKeyDown);
+
         return () => {
-            document.removeEventListener("exitpictureinpicture", handleExitPiP);
+            document.removeEventListener("keydown", handleKeyDown);
         };
     }, [videoRef, videoLink]);
 
@@ -38,8 +60,6 @@ function VideoCourse({ videoLink, videoId, order, videoPreviewImageLink, title})
             videoRef.requestPictureInPicture();
         }
     };
-
-    const handleExitPiP = () => {};
 
     return (
         <>
