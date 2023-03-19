@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Hls from "hls.js";
 import { Button, Col, Form, Row } from "react-bootstrap";
 
-function VideoCourse({ videoLink, videoId, order, videoPreviewImageLink }) {
+function VideoCourse({ videoLink, videoId, order, videoPreviewImageLink, title}) {
     const [videoRef, setVideoRef] = useState(null);
 
     useEffect(() => {
@@ -43,7 +43,7 @@ function VideoCourse({ videoLink, videoId, order, videoPreviewImageLink }) {
 
     return (
         <>
-            <Form>
+            <Form id={`video-form-${videoId}`}>
                 <Row>
                     <Col md="auto">
                         <video

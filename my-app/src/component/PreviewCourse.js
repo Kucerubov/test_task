@@ -23,7 +23,6 @@ function PreviewCourse(props) {
         <div className="mt-100">
             <h1>{course.title}</h1>
             <PreviewVideo course={course}/>
-            <p>{course.tags}</p>
         </div>
     );
 }
